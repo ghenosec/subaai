@@ -1,0 +1,175 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1kdqungongv1"]
+
+[ext_resource type="Script" uid="uid://bgsb4rel8yqid" path="res://scripts/menu.gd" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://r1ej8ui27hur" path="res://assets/sprites/cenarioMenu.png" id="2_mhnvy"]
+[ext_resource type="FontFile" uid="uid://c8yh21ckbwekl" path="res://fonts/Bangers-Regular.ttf" id="3_4ytvr"]
+[ext_resource type="AudioStream" uid="uid://b6truxltktkvk" path="res://audio/audio_menu.mp3" id="4_mhnvy"]
+[ext_resource type="AudioStream" uid="uid://crt88salealq6" path="res://audio/audio_macacouaaa.mp3" id="5_4ytvr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_62138"]
+font = ExtResource("3_4ytvr")
+font_size = 96
+shadow_size = 6
+shadow_color = Color(0.207843, 0.121569, 0, 1)
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0n2sb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0n2sb"]
+font = ExtResource("3_4ytvr")
+font_size = 32
+font_color = Color(0.207843, 0.121569, 0, 1)
+
+[node name="MenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_con2f")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mhnvy")
+expand_mode = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.412
+anchor_top = 0.429
+anchor_right = 0.588
+anchor_bottom = 0.571
+offset_left = 0.139954
+offset_top = 0.329987
+offset_right = -0.140015
+offset_bottom = -0.330017
+grow_horizontal = 2
+grow_vertical = 2
+text = "SUBAAÍ"
+label_settings = SubResource("LabelSettings_62138")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -178.0
+offset_right = 176.0
+offset_bottom = -26.0
+grow_vertical = 0
+
+[node name="NewGame" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(0, 0.337255, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4ytvr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0n2sb")
+text = "Novo Jogo"
+flat = true
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/NewGame"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.5
+offset_top = -35.0
+offset_right = 60.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Novo Jogo"
+label_settings = SubResource("LabelSettings_0n2sb")
+
+[node name="Continue" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(0, 0.337255, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4ytvr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0n2sb")
+text = "Continuar"
+flat = true
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/Continue"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.144
+anchor_top = 0.264
+anchor_right = 0.878
+anchor_bottom = 1.0
+offset_left = -3.54
+offset_top = -3.352
+offset_right = 0.019989
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continuar"
+label_settings = SubResource("LabelSettings_0n2sb")
+
+[node name="Quit" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(0, 0.337255, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4ytvr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0n2sb")
+text = "Sair"
+flat = true
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/Quit"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.163
+anchor_right = 0.652
+anchor_bottom = 0.977
+offset_top = -0.0090003
+offset_right = 3.68
+offset_bottom = -0.0110016
+grow_horizontal = 2
+grow_vertical = 0
+text = "Sair"
+label_settings = SubResource("LabelSettings_0n2sb")
+
+[node name="Version" type="Label" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -66.0
+offset_right = -40.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Versão 1.0"
+label_settings = SubResource("LabelSettings_0n2sb")
+
+[node name="Audio_menu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mhnvy")
+volume_db = -5.0
+autoplay = true
+
+[node name="Audio_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4ytvr")
+volume_db = -2.54

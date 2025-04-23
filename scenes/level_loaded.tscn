@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxq1wn2iqhoai"]
+
+[ext_resource type="Script" uid="uid://b24x0wwxupdbh" path="res://scripts/level_loaded.gd" id="1_fiveb"]
+[ext_resource type="FontFile" uid="uid://c8yh21ckbwekl" path="res://fonts/Bangers-Regular.ttf" id="2_ceo6f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fbsjx"]
+font = ExtResource("2_ceo6f")
+font_size = 80
+
+[node name="LevelLoaded" type="Node2D"]
+script = ExtResource("1_fiveb")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 357.0
+offset_top = 311.0
+offset_right = 923.0
+offset_bottom = 408.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nível carregado"
+label_settings = SubResource("LabelSettings_fbsjx")
+horizontal_alignment = 1
+vertical_alignment = 1

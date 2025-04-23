@@ -1,0 +1,211 @@
+[gd_scene load_steps=26 format=3 uid="uid://27mnlxx0hke"]
+
+[ext_resource type="AudioStream" uid="uid://xj4qrhovsm0f" path="res://audio/audio_jogando.mp3" id="1_elqb8"]
+[ext_resource type="Texture2D" uid="uid://bjy72vr48vkg7" path="res://assets/sprites/banana1.png" id="2_c01mt"]
+[ext_resource type="Texture2D" uid="uid://do6ed04f7poa7" path="res://assets/sprites/banana2.png" id="3_nxtc6"]
+[ext_resource type="Texture2D" uid="uid://cxsrlsx8cvchw" path="res://assets/sprites/banana3.png" id="4_jlsqs"]
+[ext_resource type="Texture2D" uid="uid://c7mav1kpn3j04" path="res://assets/sprites/banana4.png" id="5_q8u5g"]
+[ext_resource type="FontFile" uid="uid://c8yh21ckbwekl" path="res://fonts/Bangers-Regular.ttf" id="6_lhr70"]
+[ext_resource type="Texture2D" uid="uid://cdg0bi5v3f5e5" path="res://assets/sprites/cenario jogo.png" id="7_nxtc6"]
+[ext_resource type="Script" uid="uid://cv0ufgui06llh" path="res://scripts/stamina_bar.gd" id="9_3p2gp"]
+[ext_resource type="Script" uid="uid://cjmuxuxranen3" path="res://scripts/player.gd" id="9_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://cbeqhjcrokbnl" path="res://assets/sprites/MonkeyIdle1.png" id="9_qmy6f"]
+[ext_resource type="Texture2D" uid="uid://grli02uqn0n1" path="res://assets/sprites/YellowBar.png" id="10_lhr70"]
+[ext_resource type="Texture2D" uid="uid://t5qwvn568daw" path="res://assets/sprites/MonkeyIdle2.png" id="10_mwfav"]
+[ext_resource type="Texture2D" uid="uid://dxsp8negx1bo8" path="res://assets/sprites/MonkeyIdle3.png" id="11_3p2gp"]
+[ext_resource type="Texture2D" uid="uid://dt0a7sxfvcws1" path="res://assets/sprites/MonkeyWalk1.png" id="12_cvmbd"]
+[ext_resource type="Texture2D" uid="uid://cup57ble8exo8" path="res://assets/sprites/MonkeyWalk2.png" id="13_ft6cd"]
+[ext_resource type="PackedScene" uid="uid://ce3y1bnnp7spf" path="res://scenes/banana.tscn" id="16_cvmbd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8u5g"]
+size = Vector2(1928.75, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhr70"]
+size = Vector2(993.963, 20)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_wp0k4"]
+frames = 4
+frame_0/texture = ExtResource("2_c01mt")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("3_nxtc6")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("4_jlsqs")
+frame_2/duration = 0.2
+frame_3/texture = ExtResource("5_q8u5g")
+frame_3/duration = 0.2
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjd11"]
+font = ExtResource("6_lhr70")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp0k4"]
+size = Vector2(979.757, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wp0k4"]
+texture = ExtResource("10_lhr70")
+texture_margin_left = 4.0
+texture_margin_top = 55.0
+texture_margin_right = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb450"]
+atlas = ExtResource("9_qmy6f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfivy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb450")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mwfav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3p2gp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_cvmbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ft6cd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1nqs0"]
+
+[node name="Fase" type="Node2D"]
+
+[node name="Audio_playing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_elqb8")
+volume_db = -5.0
+autoplay = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchor_right = 0.983
+anchor_bottom = 0.972
+offset_left = 13.0
+offset_right = 37.6399
+offset_bottom = 18.24
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="MarginContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_right = 0.717
+anchor_bottom = 0.699
+offset_left = -0.68472
+offset_top = 5.0
+offset_right = 0.0559082
+offset_bottom = -0.71167
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Banana_Container" type="HBoxContainer" parent="HUD/Control/Container"]
+light_mask = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
+
+[node name="BG" type="Sprite2D" parent="background/ParallaxLayer"]
+position = Vector2(938.25, 541.125)
+scale = Vector2(0.383496, 0.374219)
+texture = ExtResource("7_nxtc6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="chão" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(951.375, 985.5)
+shape = SubResource("RectangleShape2D_q8u5g")
+
+[node name="paredeesq" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-19, 495)
+rotation = -1.57489
+shape = SubResource("RectangleShape2D_lhr70")
+
+[node name="Banana_icon" type="TextureRect" parent="StaticBody2D"]
+offset_left = 1651.0
+offset_top = 100.0
+offset_right = 1667.0
+offset_bottom = 116.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_wp0k4")
+
+[node name="Banana_counter" type="Label" parent="StaticBody2D"]
+offset_left = 1710.0
+offset_top = 105.0
+offset_right = 1741.0
+offset_bottom = 123.0
+scale = Vector2(2.5, 2.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_lhr70")
+theme_override_font_sizes/font_size = 11
+text = "0000"
+label_settings = SubResource("LabelSettings_bjd11")
+
+[node name="parededir" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1906, 489)
+rotation = 1.56706
+shape = SubResource("RectangleShape2D_wp0k4")
+
+[node name="Estamina" type="CanvasLayer" parent="."]
+
+[node name="StaminaBar" type="ProgressBar" parent="Estamina"]
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.151
+anchor_right = 0.218
+anchor_bottom = 0.195
+offset_left = -40.92
+offset_top = -153.08
+offset_right = 41.7599
+offset_bottom = 150.4
+tooltip_text = "
+"
+theme_override_styles/background = SubResource("StyleBoxTexture_wp0k4")
+step = 1.0
+script = ExtResource("9_3p2gp")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(885, 941)
+scale = Vector2(4, 4)
+disable_mode = 2
+script = ExtResource("9_q8u5g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_nfivy")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.935378
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_1nqs0")
+
+[node name="Area2D" parent="." instance=ExtResource("16_cvmbd")]
+position = Vector2(1220, 908)
+scale = Vector2(2, 2)
