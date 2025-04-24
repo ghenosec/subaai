@@ -1,0 +1,9 @@
+res://scenes/Main.tscn
+res://scripts/banana.gd
+res://scenes/menu.tscn
+res://scenes/UI.tscn
+res://scenes/level_loaded.tscn
+res://scenes/Level.tscn
+res://scripts/globals.gd
+res://scripts/player.gd
+res://scripts/stamina_bar.gd

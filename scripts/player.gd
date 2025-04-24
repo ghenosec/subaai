@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -200.0
+const SPEED = 300.0
+const JUMP_VELOCITY = -500.0
 const STAMINA_COST_PER_JUMP = 25.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -9,9 +9,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var max_stamina: float = 100.0
 var current_stamina: float = max_stamina
 
-@onready var stamina_bar = get_node_or_null("../HUD/StaminaBar") # Ajuste este caminho se necessário
+@onready var stamina_bar = get_node_or_null("../Estamina/StaminaBar") # Ajuste este caminho se necessário
 @onready var score_label = get_node_or_null("../HUD/Control/Container/Banana_Container") # Ajuste este caminho se necessário
-@onready var animated_sprite = $AnimatedSprite2D # Ajuste se o nome for diferente
+@onready var animated_sprite = $AnimatedSprite2D 
 
 var score = 0
 
@@ -26,7 +26,6 @@ func _ready():
 		print("WARN: AnimatedSprite2D node not found in Player scene.")
 
 	update_stamina_ui()
-	update_score_ui()
 
 
 func _physics_process(delta):
@@ -68,16 +67,11 @@ func restore_stamina(amount: float):
 	current_stamina = min(current_stamina + amount, max_stamina)
 	update_stamina_ui()
 
-func add_score(points: int):
-	score += points
-	print("Player: Novo score agora é =", score)
-	update_score_ui()
+func add_score(value: int) -> void:
+	score += value
+	print("Score atual:", score)
 
 func update_stamina_ui():
 	if stamina_bar:
 		stamina_bar.max_value = max_stamina
 		stamina_bar.value = current_stamina
-
-func update_score_ui():
-	if score_label:
-		score_label.text = "Score: " + str(score)

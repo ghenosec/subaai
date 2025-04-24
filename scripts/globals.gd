@@ -1,4 +1,4 @@
 extends Node
 
-var banana := 0 
+var bananas := 0 
 var score := 0
