@@ -1,0 +1,13 @@
+res://scenes/Main.tscn
+res://scripts/camera.gd
+res://scripts/PlatformManager.gd
+res://scripts/player.gd
+res://scenes/menu.tscn
+res://scripts/ParrallaxBackground.gd
+res://scripts/MegaBackground.gd
+res://scenes/tronco_plataform.tscn
+res://scripts/InfiniteBackground.gd
+res://scenes/banana.tscn
+res://scenes/Level.tscn
+res://scenes/level_loaded.tscn
+res://scripts/BreakablePlataform.gd
