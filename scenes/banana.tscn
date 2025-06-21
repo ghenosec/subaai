@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce3y1bnnp7spf"]
+[gd_scene load_steps=8 format=3 uid="uid://ce3y1bnnp7spf"]
 
 [ext_resource type="Script" uid="uid://bn548fmfse43w" path="res://scripts/banana.gd" id="1_srj6n"]
 [ext_resource type="Texture2D" uid="uid://bjy72vr48vkg7" path="res://assets/sprites/banana1.png" id="2_5gbb8"]
@@ -6,55 +6,34 @@
 [ext_resource type="Texture2D" uid="uid://cxsrlsx8cvchw" path="res://assets/sprites/banana3.png" id="4_hpx1l"]
 [ext_resource type="Texture2D" uid="uid://c7mav1kpn3j04" path="res://assets/sprites/banana4.png" id="5_bdl2a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2q7p8"]
-atlas = ExtResource("2_5gbb8")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t00sy"]
-atlas = ExtResource("3_bp77k")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6y68a"]
-atlas = ExtResource("4_hpx1l")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybhso"]
-atlas = ExtResource("5_bdl2a")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_srj6n"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2q7p8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t00sy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6y68a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ybhso")
-}],
-"loop": true,
-"name": &"banana",
-"speed": 5.0
-}]
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_srj6n"]
+frames = 4
+frame_0/texture = ExtResource("2_5gbb8")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("3_bp77k")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("4_hpx1l")
+frame_2/duration = 0.2
+frame_3/texture = ExtResource("5_bdl2a")
+frame_3/duration = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gbb8"]
-size = Vector2(36, 28)
+size = Vector2(58, 30)
 
 [node name="Area2D" type="Area2D"]
 position = Vector2(3, 1)
 script = ExtResource("1_srj6n")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(17.0001, 14.0001)
-scale = Vector2(2.5, 2.5)
-sprite_frames = SubResource("SpriteFrames_srj6n")
-animation = &"banana"
+[node name="Banana_icon" type="TextureRect" parent="."]
+offset_left = -33.0
+offset_top = -34.0
+offset_right = -11.0
+offset_bottom = -12.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_srj6n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(19, 14)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_5gbb8")

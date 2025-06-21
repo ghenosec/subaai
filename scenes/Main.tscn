@@ -16,18 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://dxsp8negx1bo8" path="res://assets/sprites/MonkeyIdle3.png" id="11_3p2gp"]
 [ext_resource type="Texture2D" uid="uid://dt0a7sxfvcws1" path="res://assets/sprites/MonkeyWalk1.png" id="12_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://cup57ble8exo8" path="res://assets/sprites/MonkeyWalk2.png" id="13_ft6cd"]
-[ext_resource type="PackedScene" uid="uid://ce3y1bnnp7spf" path="res://scenes/banana.tscn" id="16_cvmbd"]
-[ext_resource type="Script" uid="uid://hadu5lnfyq3d" path="res://scripts/platform_generator.gd" id="17_bb450"]
-[ext_resource type="PackedScene" uid="uid://bp1dc2x38x15x" path="res://scenes/tronco_plataform.tscn" id="19_nfivy"]
+[ext_resource type="Script" uid="uid://bqm1k6g2io8xe" path="res://scripts/PlatformManager.gd" id="18_bb450"]
+[ext_resource type="Script" uid="uid://lxpmakxuq7wg" path="res://scripts/InfiniteBackground.gd" id="18_nfivy"]
+[ext_resource type="Script" uid="uid://c5u05l4nyypjy" path="res://scripts/camera.gd" id="20_1nqs0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8u5g"]
-size = Vector2(1928.75, 21)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhr70"]
-size = Vector2(993.963, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp0k4"]
-size = Vector2(979.757, 20)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wp0k4"]
+texture = ExtResource("10_lhr70")
+texture_margin_left = 4.0
+texture_margin_top = 55.0
+texture_margin_right = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_bjd11"]
 font = ExtResource("6_lhr70")
@@ -45,11 +42,14 @@ frame_2/duration = 0.2
 frame_3/texture = ExtResource("5_q8u5g")
 frame_3/duration = 0.2
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wp0k4"]
-texture = ExtResource("10_lhr70")
-texture_margin_left = 4.0
-texture_margin_top = 55.0
-texture_margin_right = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8u5g"]
+size = Vector2(1928.75, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhr70"]
+size = Vector2(993.963, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp0k4"]
+size = Vector2(979.757, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bb450"]
 atlas = ExtResource("9_qmy6f")
@@ -83,19 +83,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1nqs0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nqs0"]
+size = Vector2(9.75, 4.5)
 
 [node name="Fase" type="Node2D"]
 script = ExtResource("1_ft6cd")
 
-[node name="Audio_playing" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_elqb8")
-volume_db = -5.0
-autoplay = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="Estamina" type="CanvasLayer" parent="CanvasLayer"]
 
-[node name="Control" type="Control" parent="HUD"]
+[node name="StaminaBar" type="ProgressBar" parent="CanvasLayer/Estamina"]
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.151
+anchor_right = 0.218
+anchor_bottom = 0.195
+offset_left = -40.92
+offset_top = -153.08
+offset_right = 41.7599
+offset_bottom = 150.4
+tooltip_text = "
+"
+theme_override_styles/background = SubResource("StyleBoxTexture_wp0k4")
+step = 1.0
+script = ExtResource("9_3p2gp")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchor_right = 0.983
 anchor_bottom = 0.972
@@ -105,7 +119,7 @@ offset_bottom = 18.24
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Container" type="MarginContainer" parent="HUD/Control"]
+[node name="Container" type="MarginContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.001
@@ -122,32 +136,40 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Banana_Container" type="HBoxContainer" parent="HUD/Control/Container"]
+[node name="Banana_Container" type="HBoxContainer" parent="CanvasLayer/Control/Container"]
 light_mask = 3
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 6
 
-[node name="PlatformGenerator" type="Node" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("17_bb450")
-platform_scene = ExtResource("19_nfivy")
-player = NodePath("../CharacterBody2D")
+[node name="Banana_counter" type="Label" parent="CanvasLayer"]
+offset_left = 1710.0
+offset_top = 105.0
+offset_right = 1741.0
+offset_bottom = 123.0
+scale = Vector2(2.5, 2.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("6_lhr70")
+theme_override_font_sizes/font_size = 11
+text = "0000"
+label_settings = SubResource("LabelSettings_bjd11")
 
-[node name="TroncoPlatform" parent="PlatformGenerator" instance=ExtResource("19_nfivy")]
-position = Vector2(1090, 855)
+[node name="Banana_icon" type="TextureRect" parent="CanvasLayer"]
+offset_left = 1651.0
+offset_top = 100.0
+offset_right = 1667.0
+offset_bottom = 116.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_wp0k4")
 
-[node name="background" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
-z_index = -10
-z_as_relative = false
-
-[node name="BG" type="Sprite2D" parent="background/ParallaxLayer"]
-z_index = -10
-position = Vector2(938.25, 541.125)
-scale = Vector2(0.383496, 0.374219)
-texture = ExtResource("7_nxtc6")
+[node name="Audio_playing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_elqb8")
+volume_db = -5.0
+autoplay = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -165,47 +187,6 @@ position = Vector2(1906, 489)
 rotation = 1.56706
 shape = SubResource("RectangleShape2D_wp0k4")
 
-[node name="Banana_counter" type="Label" parent="StaticBody2D"]
-offset_left = 1710.0
-offset_top = 105.0
-offset_right = 1741.0
-offset_bottom = 123.0
-scale = Vector2(2.5, 2.5)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("6_lhr70")
-theme_override_font_sizes/font_size = 11
-text = "0000"
-label_settings = SubResource("LabelSettings_bjd11")
-
-[node name="Banana_icon" type="TextureRect" parent="StaticBody2D"]
-offset_left = 1651.0
-offset_top = 100.0
-offset_right = 1667.0
-offset_bottom = 116.0
-scale = Vector2(3, 3)
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = SubResource("AnimatedTexture_wp0k4")
-
-[node name="Estamina" type="CanvasLayer" parent="."]
-
-[node name="StaminaBar" type="ProgressBar" parent="Estamina"]
-anchors_preset = -1
-anchor_left = 0.026
-anchor_top = 0.151
-anchor_right = 0.218
-anchor_bottom = 0.195
-offset_left = -40.92
-offset_top = -153.08
-offset_right = 41.7599
-offset_bottom = 150.4
-tooltip_text = "
-"
-theme_override_styles/background = SubResource("StyleBoxTexture_wp0k4")
-step = 1.0
-script = ExtResource("9_3p2gp")
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(885, 941)
 scale = Vector2(4, 4)
@@ -218,13 +199,22 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_1nqs0")
+position = Vector2(0.125, 9)
+shape = SubResource("RectangleShape2D_1nqs0")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(0, -0.5)
-enabled = false
-limit_smoothed = true
+[node name="PlatformManager" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("18_bb450")
+min_platforms_per_row = 1
+row_vertical_spacing = 300.0
+row_vertical_variance = 40.0
+banana_spawn_chance = 0.2
 
-[node name="Area2D" parent="." instance=ExtResource("16_cvmbd")]
-position = Vector2(1220, 908)
-scale = Vector2(2, 2)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(885, 924)
+script = ExtResource("20_1nqs0")
+
+[node name="InfiniteBackground" type="Node2D" parent="Camera2D"]
+z_index = -10
+script = ExtResource("18_nfivy")
+background_texture = ExtResource("7_nxtc6")

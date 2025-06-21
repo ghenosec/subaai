@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1750492279
+::res://::1750497453
 icon.svg::CompressedTexture2D/CompressedTexture2D::16766270760194566::1742907861::1742907884::1::::<><><>0<>0<>2757ace4d9efde56e6615f81655b4e05<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1742912390
 ::res://assets/sprites/::1745323430
@@ -29,22 +29,24 @@ audio_menu.mp3::AudioStreamMP3/AudioStreamMP3::4602567144461665876::1743551883::
 audio_menu.wav::AudioStreamWAV/AudioStreamWAV::1162659429414443088::1743445047::1745211594::1::::<><><>0<>0<>f83941d6ef9f7993d81a67c537370031<>res://.godot/imported/audio_menu.wav-545e48416c7758f4a4d1e42eefb089d2.sample::
 ::res://fonts/::1743441264
 Bangers-Regular.ttf::FontFile/FontFile::7139092878076775663::1725491480::1743441264::1::::<><><>0<>0<>42c592f8c76a7af5e0bfca201e92c734<>res://.godot/imported/Bangers-Regular.ttf-002d1040d6acd3ea7ce54fa6e2945de2.fontdata::
-::res://scenes/::1750187972
-banana.tscn::PackedScene::5112903030737719963::1750171521::0::1::::<><><>0<>0<><>::uid://bn548fmfse43w::::res://scripts/banana.gd<>uid://bjy72vr48vkg7::::res://assets/sprites/banana1.png<>uid://do6ed04f7poa7::::res://assets/sprites/banana2.png<>uid://cxsrlsx8cvchw::::res://assets/sprites/banana3.png<>uid://c7mav1kpn3j04::::res://assets/sprites/banana4.png
-Level.tscn::PackedScene::3425957365651067664::1750187972::0::1::::<><><>0<>0<><>::
-level_loaded.tscn::PackedScene::8808254152995267384::1750171521::0::1::::<><><>0<>0<><>::uid://b24x0wwxupdbh::::res://scripts/level_loaded.gd<>uid://c8yh21ckbwekl::::res://fonts/Bangers-Regular.ttf
-Main.tscn::PackedScene::57703273528141516::1750187972::0::1::::<><><>0<>0<><>::uid://xj4qrhovsm0f::::res://audio/audio_jogando.mp3<>uid://bddyik0qvcg6::::res://scripts/main.gd<>uid://bjy72vr48vkg7::::res://assets/sprites/banana1.png<>uid://do6ed04f7poa7::::res://assets/sprites/banana2.png<>uid://cxsrlsx8cvchw::::res://assets/sprites/banana3.png<>uid://c7mav1kpn3j04::::res://assets/sprites/banana4.png<>uid://c8yh21ckbwekl::::res://fonts/Bangers-Regular.ttf<>uid://cdg0bi5v3f5e5::::res://assets/sprites/cenario jogo.png<>uid://cv0ufgui06llh::::res://scripts/stamina_bar.gd<>uid://cjmuxuxranen3::::res://scripts/player.gd<>uid://cbeqhjcrokbnl::::res://assets/sprites/MonkeyIdle1.png<>uid://grli02uqn0n1::::res://assets/sprites/YellowBar.png<>uid://t5qwvn568daw::::res://assets/sprites/MonkeyIdle2.png<>uid://dxsp8negx1bo8::::res://assets/sprites/MonkeyIdle3.png<>uid://dt0a7sxfvcws1::::res://assets/sprites/MonkeyWalk1.png<>uid://cup57ble8exo8::::res://assets/sprites/MonkeyWalk2.png<>uid://ce3y1bnnp7spf::::res://scenes/banana.tscn<>uid://hadu5lnfyq3d::::res://scripts/platform_generator.gd<>uid://bp1dc2x38x15x::::res://scenes/tronco_plataform.tscn
-menu.tscn::PackedScene::4232186190344618692::1750187972::0::1::::<><><>0<>0<><>::uid://bgsb4rel8yqid::::res://scripts/menu.gd<>uid://r1ej8ui27hur::::res://assets/sprites/cenarioMenu.png<>uid://c8yh21ckbwekl::::res://fonts/Bangers-Regular.ttf<>uid://b6truxltktkvk::::res://audio/audio_menu.mp3<>uid://crt88salealq6::::res://audio/audio_macacouaaa.mp3
-tronco_plataform.tscn::PackedScene::3493114337413431683::1750187972::0::1::::<><><>0<>0<><>::uid://bu083idakuqbs::::res://scripts/tronco_plataform.gd<>uid://cchxw6c0c6xj4::::res://assets/sprites/tronco.png
+::res://scenes/::1750497400
+banana.tscn::PackedScene::5112903030737719963::1750497173::0::1::::<><><>0<>0<><>::uid://bn548fmfse43w::::res://scripts/banana.gd<>uid://bjy72vr48vkg7::::res://assets/sprites/banana1.png<>uid://do6ed04f7poa7::::res://assets/sprites/banana2.png<>uid://cxsrlsx8cvchw::::res://assets/sprites/banana3.png<>uid://c7mav1kpn3j04::::res://assets/sprites/banana4.png
+Level.tscn::PackedScene::8287198582959715261::1750495735::0::1::::<><><>0<>0<><>::
+level_loaded.tscn::PackedScene/PackedScene::8808254152995267384::1750171521::0::1::::<><><>0<>0<><>::uid://b24x0wwxupdbh::::res://scripts/level_loaded.gd<>uid://c8yh21ckbwekl::::res://fonts/Bangers-Regular.ttf
+Main.tscn::PackedScene::57703273528141516::1750497400::0::1::::<><><>0<>0<><>::uid://xj4qrhovsm0f::::res://audio/audio_jogando.mp3<>uid://bddyik0qvcg6::::res://scripts/main.gd<>uid://bjy72vr48vkg7::::res://assets/sprites/banana1.png<>uid://caug27d17ka63::::res://scripts/ParrallaxBackground.gd<>uid://do6ed04f7poa7::::res://assets/sprites/banana2.png<>uid://cxsrlsx8cvchw::::res://assets/sprites/banana3.png<>uid://c7mav1kpn3j04::::res://assets/sprites/banana4.png<>uid://c8yh21ckbwekl::::res://fonts/Bangers-Regular.ttf<>uid://cdg0bi5v3f5e5::::res://assets/sprites/cenario jogo.png<>uid://cv0ufgui06llh::::res://scripts/stamina_bar.gd<>uid://cjmuxuxranen3::::res://scripts/player.gd<>uid://cbeqhjcrokbnl::::res://assets/sprites/MonkeyIdle1.png<>uid://grli02uqn0n1::::res://assets/sprites/YellowBar.png<>uid://t5qwvn568daw::::res://assets/sprites/MonkeyIdle2.png<>uid://dxsp8negx1bo8::::res://assets/sprites/MonkeyIdle3.png<>uid://dt0a7sxfvcws1::::res://assets/sprites/MonkeyWalk1.png<>uid://cup57ble8exo8::::res://assets/sprites/MonkeyWalk2.png<>uid://bqm1k6g2io8xe::::res://scripts/PlatformManager.gd<>uid://c5u05l4nyypjy::::res://scripts/camera.gd
+menu.tscn::PackedScene::4232186190344618692::1750495796::0::1::::<><><>0<>0<><>::uid://bgsb4rel8yqid::::res://scripts/menu.gd<>uid://r1ej8ui27hur::::res://assets/sprites/cenarioMenu.png<>uid://c8yh21ckbwekl::::res://fonts/Bangers-Regular.ttf<>uid://b6truxltktkvk::::res://audio/audio_menu.mp3<>uid://crt88salealq6::::res://audio/audio_macacouaaa.mp3
+tronco_plataform.tscn::PackedScene::3493114337413431683::1750496578::0::1::::<><><>0<>0<><>::uid://bu083idakuqbs::::res://scripts/tronco_plataform.gd<>uid://cchxw6c0c6xj4::::res://assets/sprites/tronco.png
 UI.tscn::PackedScene/PackedScene::101313415229527965::1748268504::0::1::::<><><>0<>0<><>::
-::res://scripts/::1750187894
-banana.gd::GDScript/GDScript::3362626989004230946::1748278992::0::1::::<>Area2D<><>0<>0<><>::
-camera.gd::GDScript::6921366353424550822::1750173153::0::1::::<>Camera2D<><>0<>0<><>::
+::res://scripts/::1750497389
+banana.gd::GDScript::3362626989004230946::1750496527::0::1::::<>Area2D<><>0<>0<><>::
+camera.gd::GDScript::6921366353424550822::1750496056::0::1::::<>Camera2D<><>0<>0<><>::
+CameraController.gd::GDScript::2085016804005338104::1750494309::0::1::::CameraController<>Camera2D<><>0<>0<><>::
 globals.gd::GDScript/GDScript::2753329760281959506::1748279955::0::1::::<>Node<><>0<>0<><>::
 level_loaded.gd::GDScript/GDScript::4342828743040694861::1743443520::0::1::::<>Node2D<><>0<>0<><>::
 main.gd::GDScript/GDScript::76607423725168827::1748279012::0::1::::<>Node2D<><>0<>0<><>::
 menu.gd::GDScript/GDScript::2844825949731400707::1748279291::0::1::::MainMenu<>Control<><>0<>0<><>::
-platform_generator.gd::GDScript::491541365614281835::1750187894::0::1::::<>Node<><>0<>0<><>::
-player.gd::GDScript/GDScript::5430569993062775470::1748280113::0::1::::<>CharacterBody2D<><>0<>0<><>::
+ParrallaxBackground.gd::GDScript::4814543127465524362::1750497389::0::1::::<>ParallaxBackground<><>0<>0<><>::
+PlatformManager.gd::GDScript::3535812853432030822::1750497116::0::1::::PlatformManager<>Node2D<><>0<>0<><>::
+player.gd::GDScript::5430569993062775470::1750493856::0::1::::<>CharacterBody2D<><>0<>0<><>::
 stamina_bar.gd::GDScript/GDScript::6299640142895542833::1745522378::0::1::::<>ProgressBar<><>0<>0<><>::
-tronco_plataform.gd::GDScript::3843861088131255924::1750187698::0::1::::<>StaticBody2D<><>0<>0<><>::
+tronco_plataform.gd::GDScript/GDScript::3843861088131255924::1750187698::0::1::::<>StaticBody2D<><>0<>0<><>::

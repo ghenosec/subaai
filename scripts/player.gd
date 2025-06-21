@@ -1,8 +1,8 @@
 # Player.gd
 extends CharacterBody2D
 
-const SPEED: float = 300.0
-const JUMP_VELOCITY: float = -500.0
+const SPEED: float = 400.0
+const JUMP_VELOCITY: float = -1200.0
 const STAMINA_COST_PER_JUMP: float = 25.0
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -10,9 +10,9 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var max_stamina: float = 100.0 
 var current_stamina: float 
 
-@onready var stamina_bar: ProgressBar = get_node_or_null("../Estamina/StaminaBar")
+@onready var stamina_bar: ProgressBar = get_node_or_null("../CanvasLayer/Estamina/StaminaBar")
 @onready var score_label_hud: Label = get_node_or_null("../HUD/Control/Container/ScoreLabel") 
-@onready var banana_label_hud: Label = get_node_or_null("../StaticBody2D/Banana_counter")
+@onready var banana_label_hud: Label = get_node_or_null("../CanvasLayer/Banana_counter")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var score: int = 0
