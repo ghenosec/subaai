@@ -1,4 +1,3 @@
-# InfiniteBackground.gd - Anexe a um Node2D
 extends Node2D
 class_name InfiniteBackground
 
@@ -30,12 +29,10 @@ func find_camera():
 		print("❌ Câmera não encontrada no grupo 'camera'.")
 
 func create_tile_grid():
-	# Cria um grid 3x3 de tiles para garantir cobertura total
 	for y in range(-1, 2): # -1, 0, 1
 		for x in range(-1, 2): # -1, 0, 1
 			var tile = Sprite2D.new()
 			tile.texture = background_texture
-			# Posiciona cada tile no seu lugar no grid
 			tile.position = Vector2(x * tile_size.x, y * tile_size.y)
 			tile.centered = true
 			add_child(tile)
@@ -48,23 +45,17 @@ func _process(_delta):
 
 	var camera_pos = camera.global_position
 
-	# Lógica de reposicionamento dos tiles
 	for tile in tiles:
-		# Calcula a distância do tile para a câmera
 		var distance_to_camera = tile.global_position - camera_pos
 
-		# Se o tile está muito à esquerda da câmera, move ele para a direita
 		if distance_to_camera.x < -tile_size.x * 1.5:
 			tile.position.x += tile_size.x * 3
 
-		# Se o tile está muito à direita, move para a esquerda
 		elif distance_to_camera.x > tile_size.x * 1.5:
 			tile.position.x -= tile_size.x * 3
 
-		# Se o tile está muito acima, move para baixo
 		if distance_to_camera.y < -tile_size.y * 1.5:
 			tile.position.y += tile_size.y * 3
 
-		# Se o tile está muito abaixo, move para cima
 		elif distance_to_camera.y > tile_size.y * 1.5:
 			tile.position.y -= tile_size.y * 3

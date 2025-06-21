@@ -1,14 +1,27 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxq1wn2iqhoai"]
 
-[ext_resource type="Script" uid="uid://b24x0wwxupdbh" path="res://scripts/level_loaded.gd" id="1_fiveb"]
 [ext_resource type="FontFile" uid="uid://c8yh21ckbwekl" path="res://fonts/Bangers-Regular.ttf" id="2_ceo6f"]
+
+[sub_resource type="GDScript" id="GDScript_mcdq3"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_fbsjx"]
 font = ExtResource("2_ceo6f")
 font_size = 80
 
 [node name="LevelLoaded" type="Node2D"]
-script = ExtResource("1_fiveb")
+script = SubResource("GDScript_mcdq3")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8

@@ -11,3 +11,7 @@ res://scenes/banana.tscn
 res://scenes/Level.tscn
 res://scenes/level_loaded.tscn
 res://scripts/BreakablePlataform.gd
+res://scripts/menu.gd
+res://scripts/globals.gd
+res://scripts/banana.gd
+res://scripts/main.gd
