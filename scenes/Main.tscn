@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://27mnlxx0hke"]
+[gd_scene load_steps=29 format=3 uid="uid://27mnlxx0hke"]
 
 [ext_resource type="AudioStream" uid="uid://xj4qrhovsm0f" path="res://audio/audio_jogando.mp3" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://bddyik0qvcg6" path="res://scripts/main.gd" id="1_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://bjy72vr48vkg7" path="res://assets/sprites/banana1.png" id="2_c01mt"]
 [ext_resource type="Texture2D" uid="uid://do6ed04f7poa7" path="res://assets/sprites/banana2.png" id="3_nxtc6"]
 [ext_resource type="Texture2D" uid="uid://cxsrlsx8cvchw" path="res://assets/sprites/banana3.png" id="4_jlsqs"]
@@ -16,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dt0a7sxfvcws1" path="res://assets/sprites/MonkeyWalk1.png" id="12_cvmbd"]
 [ext_resource type="Texture2D" uid="uid://cup57ble8exo8" path="res://assets/sprites/MonkeyWalk2.png" id="13_ft6cd"]
 [ext_resource type="PackedScene" uid="uid://ce3y1bnnp7spf" path="res://scenes/banana.tscn" id="16_cvmbd"]
+[ext_resource type="Script" uid="uid://hadu5lnfyq3d" path="res://scripts/platform_generator.gd" id="17_bb450"]
+[ext_resource type="PackedScene" uid="uid://bp1dc2x38x15x" path="res://scenes/tronco_plataform.tscn" id="19_nfivy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8u5g"]
 size = Vector2(1928.75, 21)
@@ -83,6 +86,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1nqs0"]
 
 [node name="Fase" type="Node2D"]
+script = ExtResource("1_ft6cd")
 
 [node name="Audio_playing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_elqb8")
@@ -125,11 +129,22 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 6
 
+[node name="PlatformGenerator" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("17_bb450")
+platform_scene = ExtResource("19_nfivy")
+player = NodePath("../CharacterBody2D")
+
+[node name="TroncoPlatform" parent="PlatformGenerator" instance=ExtResource("19_nfivy")]
+position = Vector2(1090, 855)
+
 [node name="background" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="background"]
+z_index = -10
+z_as_relative = false
 
 [node name="BG" type="Sprite2D" parent="background/ParallaxLayer"]
+z_index = -10
 position = Vector2(938.25, 541.125)
 scale = Vector2(0.383496, 0.374219)
 texture = ExtResource("7_nxtc6")
@@ -201,10 +216,14 @@ script = ExtResource("9_q8u5g")
 sprite_frames = SubResource("SpriteFrames_nfivy")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.935378
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CapsuleShape2D_1nqs0")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(0, -0.5)
+enabled = false
+limit_smoothed = true
 
 [node name="Area2D" parent="." instance=ExtResource("16_cvmbd")]
 position = Vector2(1220, 908)
