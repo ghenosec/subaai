@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://27mnlxx0hke"]
+[gd_scene load_steps=30 format=3 uid="uid://27mnlxx0hke"]
 
 [ext_resource type="AudioStream" uid="uid://xj4qrhovsm0f" path="res://audio/audio_jogando.mp3" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://bddyik0qvcg6" path="res://scripts/main.gd" id="1_ft6cd"]
 [ext_resource type="Texture2D" uid="uid://bjy72vr48vkg7" path="res://assets/sprites/banana1.png" id="2_c01mt"]
+[ext_resource type="Texture2D" uid="uid://grli02uqn0n1" path="res://assets/sprites/YellowBar.png" id="3_nfivy"]
 [ext_resource type="Texture2D" uid="uid://do6ed04f7poa7" path="res://assets/sprites/banana2.png" id="3_nxtc6"]
 [ext_resource type="Texture2D" uid="uid://cxsrlsx8cvchw" path="res://assets/sprites/banana3.png" id="4_jlsqs"]
 [ext_resource type="Texture2D" uid="uid://c7mav1kpn3j04" path="res://assets/sprites/banana4.png" id="5_q8u5g"]
@@ -11,7 +12,6 @@
 [ext_resource type="Script" uid="uid://cv0ufgui06llh" path="res://scripts/stamina_bar.gd" id="9_3p2gp"]
 [ext_resource type="Script" uid="uid://cjmuxuxranen3" path="res://scripts/player.gd" id="9_q8u5g"]
 [ext_resource type="Texture2D" uid="uid://cbeqhjcrokbnl" path="res://assets/sprites/MonkeyIdle1.png" id="9_qmy6f"]
-[ext_resource type="Texture2D" uid="uid://grli02uqn0n1" path="res://assets/sprites/YellowBar.png" id="10_lhr70"]
 [ext_resource type="Texture2D" uid="uid://t5qwvn568daw" path="res://assets/sprites/MonkeyIdle2.png" id="10_mwfav"]
 [ext_resource type="Texture2D" uid="uid://dxsp8negx1bo8" path="res://assets/sprites/MonkeyIdle3.png" id="11_3p2gp"]
 [ext_resource type="Texture2D" uid="uid://dt0a7sxfvcws1" path="res://assets/sprites/MonkeyWalk1.png" id="12_cvmbd"]
@@ -20,11 +20,10 @@
 [ext_resource type="Script" uid="uid://lxpmakxuq7wg" path="res://scripts/InfiniteBackground.gd" id="18_nfivy"]
 [ext_resource type="Script" uid="uid://c5u05l4nyypjy" path="res://scripts/camera.gd" id="20_1nqs0"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wp0k4"]
-texture = ExtResource("10_lhr70")
-texture_margin_left = 4.0
-texture_margin_top = 55.0
-texture_margin_right = 4.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nfivy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1iba3"]
+texture = ExtResource("3_nfivy")
 
 [sub_resource type="LabelSettings" id="LabelSettings_bjd11"]
 font = ExtResource("6_lhr70")
@@ -95,17 +94,20 @@ script = ExtResource("1_ft6cd")
 
 [node name="StaminaBar" type="ProgressBar" parent="CanvasLayer/Estamina"]
 anchors_preset = -1
-anchor_left = 0.026
-anchor_top = 0.151
-anchor_right = 0.218
-anchor_bottom = 0.195
-offset_left = -40.92
-offset_top = -153.08
-offset_right = 41.7599
-offset_bottom = 150.4
+anchor_left = 0.09
+anchor_top = 0.201
+anchor_right = 0.162
+anchor_bottom = 0.201
+offset_left = -95.3
+offset_top = -167.72
+offset_right = 91.7799
+offset_bottom = 167.44
 tooltip_text = "
 "
-theme_override_styles/background = SubResource("StyleBoxTexture_wp0k4")
+theme_override_fonts/font = ExtResource("6_lhr70")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/background = SubResource("StyleBoxTexture_nfivy")
+theme_override_styles/fill = SubResource("StyleBoxTexture_1iba3")
 step = 1.0
 script = ExtResource("9_3p2gp")
 

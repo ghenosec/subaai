@@ -1,0 +1,161 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1kdqungongv1"]
+
+[ext_resource type="Script" uid="uid://bgsb4rel8yqid" path="res://scripts/menu.gd" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://r1ej8ui27hur" path="res://assets/sprites/cenarioMenu.png" id="2_mhnvy"]
+[ext_resource type="FontFile" uid="uid://c8yh21ckbwekl" path="res://fonts/Bangers-Regular.ttf" id="3_4ytvr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_62138"]
+font = ExtResource("3_4ytvr")
+font_size = 96
+shadow_size = 6
+shadow_color = Color(0.207843, 0.121569, 0, 1)
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0n2sb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0n2sb"]
+font = ExtResource("3_4ytvr")
+font_size = 32
+font_color = Color(0.207843, 0.121569, 0, 1)
+
+[node name="MenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_con2f")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.505882)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 730.0
+texture = ExtResource("2_mhnvy")
+expand_mode = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -51.5
+offset_right = 112.5
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "SUBAAÍ"
+label_settings = SubResource("LabelSettings_62138")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -178.0
+offset_right = 176.0
+offset_bottom = -26.0
+grow_vertical = 0
+
+[node name="NewGame" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(0, 0.337255, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4ytvr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0n2sb")
+text = "Novo Jogo"
+flat = true
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/NewGame"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.5
+offset_top = -35.0
+offset_right = 60.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Novo Jogo"
+label_settings = SubResource("LabelSettings_0n2sb")
+
+[node name="Continue" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(0, 0.337255, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4ytvr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0n2sb")
+text = "Continuar"
+flat = true
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/Continue"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.5
+offset_top = -35.0
+offset_right = 60.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continuar"
+label_settings = SubResource("LabelSettings_0n2sb")
+
+[node name="Options" type="Button" parent="ButtonsContainer" groups=["button"]]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(0, 0.337255, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4ytvr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0n2sb")
+text = "Opções"
+flat = true
+
+[node name="Shadow" type="Label" parent="ButtonsContainer/Options"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = -35.0
+offset_right = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Opções"
+label_settings = SubResource("LabelSettings_0n2sb")
+
+[node name="Version" type="Label" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -66.0
+offset_right = -40.0
+offset_bottom = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Versão 1.0"
+label_settings = SubResource("LabelSettings_0n2sb")

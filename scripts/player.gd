@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED: float = 400.0
-const JUMP_VELOCITY: float = -1200.0
+const JUMP_VELOCITY: float = -1100.0
 const STAMINA_COST_PER_JUMP: float = 25.0
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")

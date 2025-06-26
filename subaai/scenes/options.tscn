@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://cme4bj5dpwmsp"]
+
+[ext_resource type="Texture2D" uid="uid://r1ej8ui27hur" path="res://assets/sprites/cenarioMenu.png" id="1_c2u1v"]
+
+[sub_resource type="GDScript" id="GDScript_sx3uy"]
+script/source = "extends Node2D
+@onready var master_volume_slider = $VolumeContainer/VolumeSlider
+
+var master_bus_idx = AudioServer.get_bus_index(\"Master\")
+
+func _ready():
+	load_settings()
+	
+	master_volume_slider.value_changed.connect(self._on_master_volume_changed)
+
+func _on_master_volume_changed(value):
+	var volume_db = linear_to_db(value)
+	AudioServer.set_bus_volume_db(master_bus_idx, volume_db)
+
+func _on_apply_button_pressed():
+	save_settings()
+
+func _on_back_button_pressed():
+	save_settings()
+	get_tree().change_scene_to_file(\"res://scenes/menu.tscn\")
+
+func save_settings():
+	var config = ConfigFile.new()
+	
+	config.set_value(\"audio\", \"master_volume\", master_volume_slider.value)
+	
+	config.save(\"user://settings.cfg\")
+
+func load_settings():
+	var config = ConfigFile.new()
+	var err = config.load(\"user://settings.cfg\")
+	
+	if err != OK:
+		return
+	
+	if config.has_section_key(\"audio\", \"master_volume\"):
+		master_volume_slider.value = config.get_value(\"audio\", \"master_volume\")
+		_on_master_volume_changed(master_volume_slider.value)
+"
+
+[node name="Options" type="Node2D"]
+script = SubResource("GDScript_sx3uy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 730.0
+texture = ExtResource("1_c2u1v")
+expand_mode = 1
+
+[node name="VolumeContainer" type="VBoxContainer" parent="."]
+offset_left = 625.0
+offset_top = 333.0
+offset_right = 665.0
+offset_bottom = 376.0
+
+[node name="Volume" type="Label" parent="VolumeContainer"]
+layout_mode = 2
+
+[node name="VolumeSlider" type="HSlider" parent="VolumeContainer"]
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+offset_left = 561.0
+offset_top = 338.0
+offset_right = 601.0
+offset_bottom = 378.0
+
+[node name="Apply" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+
+[node name="Revert" type="Button" parent="ButtonContainer"]
+layout_mode = 2

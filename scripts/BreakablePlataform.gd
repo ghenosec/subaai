@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var break_delay: float = 1.5
+@export var break_delay: float = 0.5
 @export var shake_intensity: float = 4.0
 
 var is_breakable: bool = false

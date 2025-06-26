@@ -31,7 +31,6 @@ func _ready():
 	find_player()
 	find_camera()
 
-	# MUDANÇA CRÍTICA: Decide se gera um novo mundo ou carrega um existente
 	if Globals.is_loading_from_save:
 		recreate_world_from_save()
 	else:
@@ -51,9 +50,6 @@ func _process(_delta):
 	generate_platforms_ahead()
 	cleanup_old_platforms()
 
-# --- NOVAS FUNÇÕES DE SAVE/LOAD ---
-
-# Coleta os dados de todas as plataformas ativas
 func get_platforms_data() -> Array:
 	var data_array: Array = []
 	for platform in platforms:
@@ -66,7 +62,6 @@ func get_platforms_data() -> Array:
 			data_array.append(platform_data)
 	return data_array
 
-# Recria o mundo a partir dos dados salvos
 func recreate_world_from_save():
 	print("Recriando mundo a partir do save...")
 	var world_data = Globals.loaded_save_data.get("world_state", {})
@@ -77,7 +72,7 @@ func recreate_world_from_save():
 		generate_initial_platforms()
 		return
 
-	var highest_platform_y = 10000.0 # Um valor inicial alto
+	var highest_platform_y = 10000.0 
 
 	for platform_data in platform_data_array:
 		var platform = platform_scene.instantiate()
@@ -89,15 +84,12 @@ func recreate_world_from_save():
 		add_child(platform)
 		platforms.append(platform)
 
-		# Encontra a plataforma mais alta para continuar a geração a partir dela
 		if platform.global_position.y < highest_platform_y:
 			highest_platform_y = platform.global_position.y
 	
-	# Define a altura da última fileira para que a geração continue corretamente
 	last_row_y = highest_platform_y
 	print("Mundo recriado com ", platforms.size(), " plataformas.")
 
-# --- O RESTO DO SCRIPT CONTINUA O MESMO ---
 
 func generate_initial_platforms():
 	for i in range(10):

@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://demrrwnmr10bn"]
+
+[ext_resource type="Texture2D" uid="uid://cbeqhjcrokbnl" path="res://assets/sprites/MonkeyIdle1.png" id="1_qu4a1"]
+[ext_resource type="Texture2D" uid="uid://t5qwvn568daw" path="res://assets/sprites/MonkeyIdle2.png" id="2_70d11"]
+[ext_resource type="Texture2D" uid="uid://dxsp8negx1bo8" path="res://assets/sprites/MonkeyIdle3.png" id="3_cw2d6"]
+[ext_resource type="Texture2D" uid="uid://dt0a7sxfvcws1" path="res://assets/sprites/MonkeyWalk1.png" id="4_khinc"]
+[ext_resource type="Texture2D" uid="uid://cup57ble8exo8" path="res://assets/sprites/MonkeyWalk2.png" id="5_bruh7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu4a1"]
+atlas = ExtResource("4_khinc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70d11"]
+atlas = ExtResource("5_bruh7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw2d6"]
+atlas = ExtResource("1_qu4a1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khinc"]
+atlas = ExtResource("2_70d11")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bruh7"]
+atlas = ExtResource("3_cw2d6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6eyey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu4a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70d11")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw2d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khinc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bruh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3wef"]
+size = Vector2(17, 5)
+
+[node name="Personagem" type="Node2D"]
+
+[node name="Person" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Person"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Person"]
+position = Vector2(329, 264)
+sprite_frames = SubResource("SpriteFrames_6eyey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Person"]
+position = Vector2(329.5, 271.5)
+shape = SubResource("RectangleShape2D_d3wef")
